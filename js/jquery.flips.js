@@ -566,7 +566,8 @@
 				
 			} );
 			
-			this.$flipPages.find( '.box' ).on('tap click.flips', function( event ) {
+
+			var customBoxClick = function( event ) {
 				
 				var $box 			= $(this),
 					$boxClose		= $( '<span class="box-close">close</span>' ),
@@ -659,7 +660,10 @@
 					
 				}, 0 );
 				
-			} );
+			}
+			this.$flipPages.find( '.box' ).on('tap', customBoxClick );
+			this.$flipPages.find( '.box' ).on('click.flips', customBoxClick );
+
 			
 		},
 		_onEndFlip			: function( $page ) {
